@@ -71,11 +71,27 @@ document.addEventListener("DOMContentLoaded", () => {
       a.remove();
     });
   });
+  // Gallery arrows
+  const track = document.querySelector('.gallery-track');
+  const btnLeft = document.querySelector('.gal-arrow[aria-label="Scroll left"]');
+  const btnRight = document.querySelector('.gal-arrow[aria-label="Scroll right"]');
 
-  // Remove the Tweaks Panel entirely as it's an editor-only React component
-  // Re-wiring 30+ complex custom React controls manually in vanilla JS is not robust.
-  const tweaksPanel = document.querySelector('.twk-panel');
-  if (tweaksPanel) {
-    tweaksPanel.remove();
+  if (track && btnLeft && btnRight) {
+    const getScrollAmount = () => {
+      const card = track.firstElementChild;
+      if (!card) return 300;
+      const gap = parseFloat(getComputedStyle(track).gap) || 0;
+      // Scroll by exactly one card width + gap so cards perfectly align
+      return card.offsetWidth + gap;
+    };
+    
+    btnLeft.addEventListener('click', () => {
+      track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+    });
+
+    btnRight.addEventListener('click', () => {
+      track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+    });
   }
+
 });
