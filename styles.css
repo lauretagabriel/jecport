@@ -1029,13 +1029,16 @@ body.sheet-open{ overflow: hidden; }
   .sec-head{ flex-direction: column; gap: 6px; margin-bottom: 30px; }
   .sec-num{ padding-top: 0; }
   .collab-timeline{ flex-direction: column; }
-  .tl-item{ padding-left: 24px; padding-right: 0; }
+  .tl-item{ padding-left: 24px; padding-right: 0; border-bottom: 1px dashed var(--line); }
   .tl-item::before{ left: 4px; top: 0; bottom: 0; right: auto; width: 1px; height: auto; display: none; }
   .tl-item .tl-dot {
     display: none;
   }
   .eyebrow{
     margin-bottom: 2rem;
+  }
+  .tl-item .tl-date {
+    margin-top: 0;
   }
 }
 @media (max-width: 460px){
