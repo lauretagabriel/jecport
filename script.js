@@ -49,14 +49,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const sheetClose = sheet ? sheet.querySelector('.sheet-top .icon-btn') : null;
   const sheetLinks = sheet ? sheet.querySelectorAll('.sheet-links a') : [];
 
+  const openSheet = () => {
+    sheet.classList.add("open");
+    document.body.classList.add("sheet-open");
+  };
+  const closeSheet = () => {
+    sheet.classList.remove("open");
+    document.body.classList.remove("sheet-open");
+  };
+
   if (burgerBtn && sheet) {
-    burgerBtn.addEventListener("click", () => sheet.classList.add("open"));
+    burgerBtn.addEventListener("click", openSheet);
   }
   if (sheetClose && sheet) {
-    sheetClose.addEventListener("click", () => sheet.classList.remove("open"));
+    sheetClose.addEventListener("click", closeSheet);
   }
   sheetLinks.forEach(link => {
-    link.addEventListener("click", () => sheet.classList.remove("open"));
+    link.addEventListener("click", closeSheet);
   });
 
   // 5. Download Resume Buttons
