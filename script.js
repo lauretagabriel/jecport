@@ -36,10 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const current = root.getAttribute("data-theme");
       const next = current === "dark" ? "light" : "dark";
       root.setAttribute("data-theme", next);
-      
-      // Update icon (sun/moon SVG)
-      // For simplicity, we just toggle the color scheme attribute, the SVG remains the same 
-      // or we can swap the SVG innerHTML if needed, but it's fine for now.
     });
   }
 
@@ -68,19 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", closeSheet);
   });
 
-  // 5. Download Resume Buttons
-  const downloadBtns = Array.from(document.querySelectorAll('button')).filter(b => b.textContent.includes('Download'));
-  downloadBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const a = document.createElement("a");
-      a.href = "uploads/Jessica-Laureta-Resume.pdf";
-      a.download = "Jessica-Laureta-Resume.pdf";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    });
-  });
-  // Gallery arrows
+  // 5. Gallery arrows
   const track = document.querySelector('.gallery-track');
   const btnLeft = document.querySelector('.gal-arrow[aria-label="Scroll left"]');
   const btnRight = document.querySelector('.gal-arrow[aria-label="Scroll right"]');

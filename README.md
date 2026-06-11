@@ -1,55 +1,54 @@
 # Jessica Laureta — Portfolio
 
-A static portfolio site for Jessica Laureta, Software Engineer.
+A fast, static portfolio site for Jessica Laureta, Software Engineer.
 
-Built with **React 18** (via CDN) + **Babel standalone** for client-side JSX transpilation — no build step required.
+Built with plain **HTML, CSS, and vanilla JavaScript** — no framework, no build step, no dependencies.
 
 ## Live Site
 
-Deployed automatically to GitHub Pages:
-**[lauretagabriel.github.io/jecport](https://lauretagabriel.github.io/jecport/)**
+**[www.jecport.com](https://www.jecport.com)**
 
-## Local Development
+## Running Locally
 
-Serve the project root with any static file server:
+There is no build step. Just open the HTML file directly in your browser:
 
 ```bash
-# Using Python
-python3 -m http.server 8000
-
-# Using Node (npx)
-npx serve .
+open index.html      # macOS
+# or simply double-click index.html in your file explorer
 ```
 
-Then open `http://localhost:8000` in your browser.
+> Everything works from `file://`. A local web server is only needed if you want
+> absolute-path resources (the web manifest, sitemap) to resolve exactly as they
+> do in production — in that case serve the project root with any static server,
+> e.g. `npx serve .`, then open the printed URL.
+
+## Project Structure
+
+```
+├── index.html          # The entire page (single document)
+├── styles.css          # All styles and theme tokens
+├── script.js           # Reveal animations, sticky nav, theme toggle, mobile sheet, gallery
+├── site.webmanifest    # PWA manifest
+├── sitemap.xml         # Sitemap for search engines
+├── robots.txt          # Crawler directives
+├── assets/             # Images, logos, icons, resume PDF
+│   └── gallery/         # Business-trip / travel photos
+└── .github/workflows/  # CI/CD
+    └── deploy.yml       # GitHub Pages deployment
+```
 
 ## Deployment
 
 Deployment is fully automated via **GitHub Actions**.
 
-- **Trigger**: Every push to `main` (or manual dispatch from the Actions tab).
+- **Trigger**: every push to `main` (or a manual run from the Actions tab).
 - **Workflow**: [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
-- **How it works**: The workflow uploads all static files and deploys them to GitHub Pages using `actions/deploy-pages`.
+- **How it works**: the workflow uploads the repository root as a static artifact
+  and publishes it to GitHub Pages, which serves the custom domain
+  [www.jecport.com](https://www.jecport.com).
 
-### First-time Setup
+### First-time setup
 
-1. Go to your repository **Settings → Pages**.
+1. In the repository, go to **Settings → Pages**.
 2. Under **Build and deployment → Source**, select **GitHub Actions**.
-3. Push to `main` — the workflow will run and deploy automatically.
-
-## Project Structure
-
-```
-├── index.html           # Entry point
-├── styles.css           # All styles
-├── app.jsx              # Main React app
-├── sections.jsx         # Page section components
-├── data.jsx             # Portfolio content / data
-├── icons.jsx            # SVG icon components
-├── tweaks-panel.jsx     # Theme/tweaks panel component
-├── assets/              # Images, logos, resume PDF
-│   └── gallery/         # Business trip / travel photos
-├── uploads/             # Uploaded files (resume PDF)
-└── .github/workflows/   # CI/CD pipeline
-    └── deploy.yml       # GitHub Pages deployment
-```
+3. Push to `main` — the workflow runs and deploys automatically.
