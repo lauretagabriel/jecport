@@ -182,8 +182,8 @@ body.anim-on .reveal.in{ opacity: 1; transform: none; }
 .btn svg{ width: 16px; height: 16px; }
 .btn-primary{ background: var(--accent); color: var(--accent-ink); box-shadow: var(--shadow-sm); }
 .btn-primary:hover{ background: color-mix(in oklab, var(--accent) 86%, #000 14%); box-shadow: var(--shadow); }
-.nav .btn-primary{ padding: 8px 14px; font-size: 13px; }
-.nav .btn-primary svg{ width: 15px; height: 15px; }
+.nav .btn{ padding: 8px 14px; font-size: 13px; }
+.nav .btn svg{ width: 15px; height: 15px; }
 .btn-primary:active{ background: color-mix(in oklab, var(--accent) 78%, #000 22%); }
 .btn-ghost{ background: transparent; color: var(--ink); border-color: var(--line-2); }
 .btn-ghost:hover{ background: var(--surface-2); border-color: var(--ink-3); }
